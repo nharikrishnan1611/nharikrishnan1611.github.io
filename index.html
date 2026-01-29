@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hari Krishnan N | AI • Robotics • Neon Portfolio</title>
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    :root{
+      --bg:#05080f;--card:#0a0f1f;--text:#e5e7eb;
+      --accent:#39ff14;--blue:#38bdf8;
+      --glow:0 0 12px rgba(57,255,20,.6),0 0 40px rgba(57,255,20,.25);
+    }
+    body.light{--bg:#f9fafb;--card:#ffffff;--text:#020617;--accent:#16a34a;--blue:#2563eb}
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);transition:.4s;overflow-x:hidden}
+
+    /* HEADER */
+    header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;background:radial-gradient(circle at top,var(--blue),transparent 55%)}
+    header h1{font-size:3.8rem;margin:0;text-shadow:var(--glow)}
+    header p{font-size:1.4rem;opacity:.9}
+
+    .toggle{position:fixed;top:20px;right:20px;z-index:999;background:var(--card);padding:12px 16px;border-radius:30px;cursor:pointer;box-shadow:0 0 20px rgba(0,0,0,.6)}
+
+    /* FLOATING ICONS */
+    .float{position:absolute;font-size:2.4rem;color:var(--accent);opacity:.35;filter:drop-shadow(0 0 6px var(--accent));animation:float 9s infinite ease-in-out}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-50px)}100%{transform:translateY(0)}}
+
+    section{max-width:1300px;margin:auto;padding:110px 20px}
+    h2{text-align:center;color:var(--accent);font-size:2.7rem;margin-bottom:70px}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px}
+
+    .card{background:linear-gradient(180deg,rgba(57,255,20,.07),transparent),var(--card);border-radius:24px;padding:34px;position:relative;box-shadow:0 0 35px rgba(0,0,0,.6);transition:.45s}
+    .card::before{content:'';position:absolute;inset:0;border-radius:24px;border:1px solid rgba(57,255,20,.25)}
+    .card:hover{transform:translateY(-18px) scale(1.04);box-shadow:0 0 45px rgba(57,255,20,.4)}
+
+    .icon{font-size:2.8rem;color:var(--accent);text-shadow:var(--glow);margin-bottom:18px}
+    .tag{display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(57,255,20,.14);margin:4px;font-size:.85rem}
+
+    /* SKILL BARS */
+    .bar{background:#0e1326;border-radius:20px;overflow:hidden;margin:10px 0}
+    .bar span{display:block;height:14px;background:linear-gradient(90deg,var(--accent),var(--blue));box-shadow:var(--glow)}
+
+    /* STATS */
+    .stat{text-align:center}
+    .stat h3{font-size:2.5rem;color:var(--accent)}
+
+    .btn{display:inline-block;margin-top:25px;padding:14px 28px;border-radius:30px;background:var(--accent);color:#000;text-decoration:none;font-weight:700;box-shadow:var(--glow)}
+
+    /* BACK TO TOP */
+    .top{position:fixed;bottom:30px;right:30px;background:var(--accent);color:#000;border-radius:50%;padding:14px;cursor:pointer;box-shadow:var(--glow)}
+
+    footer{text-align:center;padding:60px;opacity:.85}
+    @media(max-width:600px){header h1{font-size:2.5rem}}
+  </style>
+</head>
+<body>
+
+<div class="toggle" onclick="toggleMode()"><i class="fas fa-adjust"></i></div>
+<div class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+
+<header data-aos="zoom-in">
+  <h1>Hari Krishnan N</h1>
+  <p>AI • Robotics • Data • Automation</p>
+
+  <i class="float fas fa-robot" style="top:20%;left:8%"></i>
+  <i class="float fas fa-brain" style="top:62%;left:12%"></i>
+  <i class="float fas fa-dog" style="top:42%;right:10%"></i>
+  <i class="float fas fa-chart-line" style="bottom:20%;right:20%"></i>
+</header>
+
+<section data-aos="fade-up">
+<h2>Timeline</h2>
+<div class="timeline">
+  <div class="line"></div>
+
+  <div class="t-item left" data-aos="fade-right">
+    <span class="badge">🎓 Foundation</span>
+    <div class="card">
+      <img class="illus" src="https://illustrations.popsy.co/green/student.svg" alt="foundation">
+      <h3>2023 – Foundation Phase</h3>
+      <p>Began B.E in AI & Robotics. Strengthened fundamentals in Python, C, electronics basics, sensors, and logical problem-solving through continuous mini-builds.</p>
+      <button class="btn small" onclick="openModal('m1')">View Projects</button>
+    </div>
+  </div>
+
+  <div class="t-item right" data-aos="fade-left">
+    <span class="badge">🤖 Robotics</span>
+    <div class="card">
+      <img class="illus" src="https://illustrations.popsy.co/green/robotics.svg" alt="robotics">
+      <h3>2024 – Robotics & Industry</h3>
+      <p>Built Line Follower Robot and Robotic Arm. Completed internship at Brakes India Pvt. Ltd with exposure to manufacturing workflows and industrial engineering practices.</p>
+      <button class="btn small" onclick="openModal('m2')">Deep Dive</button>
+    </div>
+  </div>
+
+  <div class="t-item left" data-aos="fade-right">
+    <span class="badge">🧠 AI & Data</span>
+    <div class="card">
+      <img class="illus" src="https://illustrations.popsy.co/green/artificial-intelligence.svg" alt="ai">
+      <h3>2025 – AI, Data & Automation</h3>
+      <p>Developed J.A.R.V.I.S / H.A.R.I voice assistant, explored NLP, performed EDA on datasets, and built automation workflows integrating software with intelligent logic.</p>
+      <button class="btn small" onclick="openModal('m3')">Details</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<section data-aos="fade-up">
+<h2>Achievements</h2>
+<div class="grid">
+  <div class="card stat">🏭 Internship<br><strong>Brakes India</strong></div>
+  <div class="card stat">🤖 Robotics<br><strong>Multiple Builds</strong></div>
+  <div class="card stat">🧠 AI Systems<br><strong>Voice Assistant</strong></div>
+</div>
+</section>
+
+<section data-aos="fade-up">
+<h2>GitHub Activity</h2>
+<div class="card" style="text-align:center">
+  <p>Consistent hands-on coding with Python, AI, and automation projects.</p>
+  <img src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=chartreuse-dark" alt="github stats" style="max-width:100%">
+</div>
+</section>
+
+<!-- MODALS -->
+<div class="modal" id="m1"><div class="modal-content"><h3>Foundation Projects</h3><p>Python basics, logic building programs, sensor experiments.</p><span onclick="closeModal('m1')">Close</span></div></div>
+<div class="modal" id="m2"><div class="modal-content"><h3>Robotics Projects</h3><p>Line Follower Robot, Robotic Arm, control algorithms, hardware testing.</p><span onclick="closeModal('m2')">Close</span></div></div>
+<div class="modal" id="m3"><div class="modal-content"><h3>AI & Data Projects</h3><p>Voice AI (JARVIS), NLP basics, data cleaning, EDA, automation scripts.</p><span onclick="closeModal('m3')">Close</span></div></div>
+
+<section data-aos="fade-up">
+<h2>Contact & CTA</h2>
+<div class="card" style="text-align:center">
+<p>📞 9345449972<br>✉️ n.harikrishnan1611@gmail.com</p>
+<a class="btn" href="#">Download Resume</a>
+</div>
+</section>
+
+<footer>© 2026 Hari Krishnan N | Neon AI & Robotics Portfolio</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({once:true,duration:1200});
+function toggleMode(){document.body.classList.toggle('light')}
+</script>
+
+</body>
+</html>
