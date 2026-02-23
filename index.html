@@ -2,154 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hari Krishnan N | AI • Robotics • Neon Portfolio</title>
-
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <!-- Animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Autonomous Smart Home System</title>
   <style>
-    :root{
-      --bg:#05080f;--card:#0a0f1f;--text:#e5e7eb;
-      --accent:#39ff14;--blue:#38bdf8;
-      --glow:0 0 12px rgba(57,255,20,.6),0 0 40px rgba(57,255,20,.25);
+    :root {
+      --bg-dark: #0a1a3a;
+      --accent: #00d4ff;
+      --text-light: #f0f8ff;
+      --glow: rgba(0, 212, 255, 0.6);
     }
-    body.light{--bg:#f9fafb;--card:#ffffff;--text:#020617;--accent:#16a34a;--blue:#2563eb}
-
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);transition:.4s;overflow-x:hidden}
-
-    /* HEADER */
-    header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;background:radial-gradient(circle at top,var(--blue),transparent 55%)}
-    header h1{font-size:3.8rem;margin:0;text-shadow:var(--glow)}
-    header p{font-size:1.4rem;opacity:.9}
-
-    .toggle{position:fixed;top:20px;right:20px;z-index:999;background:var(--card);padding:12px 16px;border-radius:30px;cursor:pointer;box-shadow:0 0 20px rgba(0,0,0,.6)}
-
-    /* FLOATING ICONS */
-    .float{position:absolute;font-size:2.4rem;color:var(--accent);opacity:.35;filter:drop-shadow(0 0 6px var(--accent));animation:float 9s infinite ease-in-out}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-50px)}100%{transform:translateY(0)}}
-
-    section{max-width:1300px;margin:auto;padding:110px 20px}
-    h2{text-align:center;color:var(--accent);font-size:2.7rem;margin-bottom:70px}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px}
-
-    .card{background:linear-gradient(180deg,rgba(57,255,20,.07),transparent),var(--card);border-radius:24px;padding:34px;position:relative;box-shadow:0 0 35px rgba(0,0,0,.6);transition:.45s}
-    .card::before{content:'';position:absolute;inset:0;border-radius:24px;border:1px solid rgba(57,255,20,.25)}
-    .card:hover{transform:translateY(-18px) scale(1.04);box-shadow:0 0 45px rgba(57,255,20,.4)}
-
-    .icon{font-size:2.8rem;color:var(--accent);text-shadow:var(--glow);margin-bottom:18px}
-    .tag{display:inline-block;padding:6px 14px;border-radius:20px;background:rgba(57,255,20,.14);margin:4px;font-size:.85rem}
-
-    /* SKILL BARS */
-    .bar{background:#0e1326;border-radius:20px;overflow:hidden;margin:10px 0}
-    .bar span{display:block;height:14px;background:linear-gradient(90deg,var(--accent),var(--blue));box-shadow:var(--glow)}
-
-    /* STATS */
-    .stat{text-align:center}
-    .stat h3{font-size:2.5rem;color:var(--accent)}
-
-    .btn{display:inline-block;margin-top:25px;padding:14px 28px;border-radius:30px;background:var(--accent);color:#000;text-decoration:none;font-weight:700;box-shadow:var(--glow)}
-
-    /* BACK TO TOP */
-    .top{position:fixed;bottom:30px;right:30px;background:var(--accent);color:#000;border-radius:50%;padding:14px;cursor:pointer;box-shadow:var(--glow)}
-
-    footer{text-align:center;padding:60px;opacity:.85}
-    @media(max-width:600px){header h1{font-size:2.5rem}}
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a1a3a 0%, #001f3f 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .background-glow {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(0,212,255,0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: -2;
+    }
+    .particles {
+      position: fixed;
+      inset: 0;
+      background: url('https://thumbs.dreamstime.com/b/abstract-digital-wave-glowing-particles-deep-blue-abstract-digital-wave-glowing-particles-deep-blue-dynamic-d-wave-405167607.jpg') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: -1;
+      animation: subtleDrift 60s linear infinite;
+    }
+    @keyframes subtleDrift {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-5%, -5%); }
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,212,255,0.2);
+    }
+    h1 { font-size: 3.2rem; margin-bottom: 0.5rem; text-shadow: 0 0 20px var(--glow); }
+    h2 { font-size: 2.4rem; color: var(--accent); margin: 2rem 0 1rem; text-align: center; }
+    .slide {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      background: rgba(10, 26, 58, 0.65);
+      border-radius: 16px;
+      border: 1px solid rgba(0,212,255,0.18);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease;
+    }
+    .slide:hover { transform: translateY(-8px); }
+    ul {
+      list-style: none;
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+    ul li {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+    ul li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .img-container {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(0,212,255,0.25);
+    }
+    .highlight { color: #7df9ff; font-weight: 600; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      color: #a0c0ff;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.9rem; }
+      .slide { padding: 1.8rem; margin: 1.5rem 1rem; }
+    }
   </style>
 </head>
 <body>
 
-<div class="toggle" onclick="toggleMode()"><i class="fas fa-adjust"></i></div>
-<div class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+  <div class="background-glow"></div>
+  <div class="particles"></div>
 
-<header data-aos="zoom-in">
-  <h1>Hari Krishnan N</h1>
-  <p>AI • Robotics • Data • Automation</p>
+  <header>
+    <h1>Autonomous Smart Home System</h1>
+    <p style="font-size:1.4rem; opacity:0.9;">Energy-Efficient Living Through Intelligent Automation</p>
+  </header>
 
-  <i class="float fas fa-robot" style="top:20%;left:8%"></i>
-  <i class="float fas fa-brain" style="top:62%;left:12%"></i>
-  <i class="float fas fa-dog" style="top:42%;right:10%"></i>
-  <i class="float fas fa-chart-line" style="bottom:20%;right:20%"></i>
-</header>
-
-<section data-aos="fade-up">
-<h2>Timeline</h2>
-<div class="timeline">
-  <div class="line"></div>
-
-  <div class="t-item left" data-aos="fade-right">
-    <span class="badge">🎓 Foundation</span>
-    <div class="card">
-      <img class="illus" src="https://illustrations.popsy.co/green/student.svg" alt="foundation">
-      <h3>2023 – Foundation Phase</h3>
-      <p>Began B.E in AI & Robotics. Strengthened fundamentals in Python, C, electronics basics, sensors, and logical problem-solving through continuous mini-builds.</p>
-      <button class="btn small" onclick="openModal('m1')">View Projects</button>
+  <section class="slide">
+    <h2>Introduction</h2>
+    <ul>
+      <li>Smart homes represent the future of residential living</li>
+      <li>Integration of IoT sensors, hardware, and software systems</li>
+      <li>Goal: Create an intelligent ecosystem that adapts to user presence</li>
+      <li>Hybrid approach combining hardware sensors with software intelligence</li>
+      <li>Seamless integration with mobile applications for user control</li>
+    </ul>
+    <div class="img-container">
+      <img src="https://thumbs.dreamstime.com/b/futuristic-smart-home-living-room-iot-technology-connected-city-network-interior-advanced-wireless-connectivity-digital-433521802.jpg" alt="Futuristic smart home living room">
     </div>
-  </div>
+  </section>
 
-  <div class="t-item right" data-aos="fade-left">
-    <span class="badge">🤖 Robotics</span>
-    <div class="card">
-      <img class="illus" src="https://illustrations.popsy.co/green/robotics.svg" alt="robotics">
-      <h3>2024 – Robotics & Industry</h3>
-      <p>Built Line Follower Robot and Robotic Arm. Completed internship at Brakes India Pvt. Ltd with exposure to manufacturing workflows and industrial engineering practices.</p>
-      <button class="btn small" onclick="openModal('m2')">Deep Dive</button>
+  <section class="slide">
+    <h2>Problem Statement</h2>
+    <ul>
+      <li>Energy waste due to running appliances when residents are away</li>
+      <li>Lack of intelligent automation in traditional homes</li>
+      <li>Manual control of appliances is time-consuming and inefficient</li>
+      <li>Need for a system that detects occupancy and responds automatically</li>
+      <li>Requirement for easy configuration through user-friendly interfaces</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Proposed Solution</h2>
+    <ul>
+      <li>Autonomous Smart Home System with presence detection</li>
+      <li>Sensors automatically detect when home is unoccupied</li>
+      <li>Appliances shut down automatically based on configured rules</li>
+      <li>Hardware-Software hybrid architecture for reliability</li>
+      <li>App integration for remote monitoring and settings configuration</li>
+    </ul>
+    <div class="img-container">
+      <img src="https://pub.mdpi-res.com/sensors/sensors-21-03784/article_deploy/html/images/sensors-21-03784-g001.png?1622620990" alt="Smart home system architecture diagram">
     </div>
-  </div>
+  </section>
 
-  <div class="t-item left" data-aos="fade-right">
-    <span class="badge">🧠 AI & Data</span>
-    <div class="card">
-      <img class="illus" src="https://illustrations.popsy.co/green/artificial-intelligence.svg" alt="ai">
-      <h3>2025 – AI, Data & Automation</h3>
-      <p>Developed J.A.R.V.I.S / H.A.R.I voice assistant, explored NLP, performed EDA on datasets, and built automation workflows integrating software with intelligent logic.</p>
-      <button class="btn small" onclick="openModal('m3')">Details</button>
+  <section class="slide">
+    <h2>System Architecture</h2>
+    <ul>
+      <li><span class="highlight">Hardware Layer:</span> IoT sensors for occupancy detection</li>
+      <li><span class="highlight">Processing Layer:</span> Microcontroller/embedded system for logic</li>
+      <li><span class="highlight">Software Layer:</span> Automation algorithms and decision-making</li>
+      <li><span class="highlight">Communication Layer:</span> Wireless connectivity (WiFi, Bluetooth)</li>
+      <li><span class="highlight">Interface Layer:</span> Mobile app integration for user configuration</li>
+    </ul>
+    <div class="img-container">
+      <img src="https://zibtek-ghost-blog.sfo3.cdn.digitaloceanspaces.com/2020/07/image-36.png" alt="IoT layered architecture">
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
-<section data-aos="fade-up">
-<h2>Achievements</h2>
-<div class="grid">
-  <div class="card stat">🏭 Internship<br><strong>Brakes India</strong></div>
-  <div class="card stat">🤖 Robotics<br><strong>Multiple Builds</strong></div>
-  <div class="card stat">🧠 AI Systems<br><strong>Voice Assistant</strong></div>
-</div>
-</section>
+  <section class="slide">
+    <h2>Key Features</h2>
+    <div class="grid">
+      <div>Automatic occupancy detection using multiple sensor types</div>
+      <div>Configurable automation rules through mobile app</div>
+      <div>Energy monitoring and consumption tracking</div>
+      <div>Real-time alerts and notifications to users</div>
+      <div>Manual override capability for user control</div>
+    </div>
+    <div class="img-container">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/1*lbobhmz_BoI3IKy1APnMqA.png" alt="Smart home energy monitoring app dashboard">
+    </div>
+  </section>
 
-<section data-aos="fade-up">
-<h2>GitHub Activity</h2>
-<div class="card" style="text-align:center">
-  <p>Consistent hands-on coding with Python, AI, and automation projects.</p>
-  <img src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=chartreuse-dark" alt="github stats" style="max-width:100%">
-</div>
-</section>
+  <section class="slide">
+    <h2>Hardware Components</h2>
+    <ul>
+      <li>Motion/PIR Sensors for occupancy detection</li>
+      <li>Door/Window Sensors to monitor entry points</li>
+      <li>Smart Relay Modules to control appliances</li>
+      <li>Microcontroller Unit for processing</li>
+      <li>Power Supply for distribution</li>
+    </ul>
+    <div class="img-container">
+      <img src="https://cdn-learn.adafruit.com/assets/assets/000/013/829/medium800/proximity_PIRbackLabeled.jpg?1390935476" alt="PIR Motion Sensor">
+    </div>
+  </section>
 
-<!-- MODALS -->
-<div class="modal" id="m1"><div class="modal-content"><h3>Foundation Projects</h3><p>Python basics, logic building programs, sensor experiments.</p><span onclick="closeModal('m1')">Close</span></div></div>
-<div class="modal" id="m2"><div class="modal-content"><h3>Robotics Projects</h3><p>Line Follower Robot, Robotic Arm, control algorithms, hardware testing.</p><span onclick="closeModal('m2')">Close</span></div></div>
-<div class="modal" id="m3"><div class="modal-content"><h3>AI & Data Projects</h3><p>Voice AI (JARVIS), NLP basics, data cleaning, EDA, automation scripts.</p><span onclick="closeModal('m3')">Close</span></div></div>
+  <section class="slide">
+    <h2>How It Works</h2>
+    <ul>
+      <li>Sensors continuously monitor occupancy</li>
+      <li>System analyzes sensor data in real-time</li>
+      <li>When no occupancy detected, automation rules activate</li>
+      <li>Connected appliances receive shutdown commands</li>
+      <li>User receives notifications via mobile app</li>
+      <li>System returns to normal when occupancy is detected</li>
+    </ul>
+  </section>
 
-<section data-aos="fade-up">
-<h2>Contact & CTA</h2>
-<div class="card" style="text-align:center">
-<p>📞 9345449972<br>✉️ n.harikrishnan1611@gmail.com</p>
-<a class="btn" href="#">Download Resume</a>
-</div>
-</section>
+  <section class="slide">
+    <h2>Smart Home Applications</h2>
+    <div class="grid">
+      <div>Lighting Control</div>
+      <div>HVAC Systems</div>
+      <div>Entertainment Systems</div>
+      <div>Security Systems Integration</div>
+      <div>Kitchen Appliances Control</div>
+    </div>
+  </section>
 
-<footer>© 2026 Hari Krishnan N | Neon AI & Robotics Portfolio</footer>
+  <section class="slide">
+    <h2>Benefits</h2>
+    <ul>
+      <li>Significant energy savings</li>
+      <li>Improved home security</li>
+      <li>Convenience and peace of mind</li>
+      <li>Reduced environmental impact</li>
+      <li>Scalability and cost-effectiveness</li>
+    </ul>
+    <div class="img-container">
+      <img src="https://thumbs.dreamstime.com/b/futuristic-smart-home-technology-interface-holographic-display-modern-living-room-image-generated-using-ai-381320103.jpg" alt="Modern smart home holographic interface">
+    </div>
+  </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({once:true,duration:1200});
-function toggleMode(){document.body.classList.toggle('light')}
-</script>
+  <section class="slide">
+    <h2>Conclusion</h2>
+    <ul>
+      <li>Addresses energy waste and convenience</li>
+      <li>Hybrid approach ensures reliability</li>
+      <li>Mobile app provides control and monitoring</li>
+      <li>Scalable and adaptable solution</li>
+      <li>Supports intelligent, sustainable living</li>
+    </ul>
+    <div style="text-align:center; margin-top:2rem; font-size:1.4rem; color:var(--accent);">
+      Thank You
+    </div>
+  </section>
+
+  <footer>
+    Autonomous Smart Home System • February 2026
+  </footer>
 
 </body>
 </html>
